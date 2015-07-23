@@ -100,6 +100,21 @@ class RGBA {
 
 // class definitions here
 
+class ImageModel {
+    constructor(heightValue, widthValue, pixelGridValue) {
+        this.height = heightValue;
+        this.width = widthValue;
+        if(pixelGridValue) {
+            this.pixelGrid = pixelGridValue;
+        }
+        else {
+            this.pixelGrid = initializePixelGrid(heightValue);
+        }
+    }
+
+
+}
+
 $(document).ready(function() {
     var img = new Image();
     img.src = "img/cat.jpg";
@@ -107,3 +122,13 @@ $(document).ready(function() {
 
 
 });
+function initializePixelGrid(height){
+    var pixelGrid = [];
+    for(var y = 0; y < height; y++) {
+        pixelGrid[y] = [];
+    }
+    var pixels = initializePixelGrid(10);
+    pixels[0][0] = new RGBA(255, 0, 0, 255);
+    return pixelGrid;
+}
+
